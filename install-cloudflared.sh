@@ -3,8 +3,8 @@
 # Usage: linux-64bit, running as a non-root user
 
 runasroot=1
-origindir=$(dirname "$0")
-echo $origindir
+full_path=$(realpath $0)
+origindir=$(dirname $full_path)
 
 cd /tmp
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared installation"
@@ -19,7 +19,6 @@ echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared user"
 sudo useradd -s /usr/sbin/nologin -r -M cloudflared
 
 cd $origindir
-pwd
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared config"
 sudo cp ./cloudflared.conf /etc/default/cloudflared
 
