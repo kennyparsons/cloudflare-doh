@@ -16,6 +16,7 @@ cloudflared -v
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared user"
 sudo useradd -s /usr/sbin/nologin -r -M cloudflared
 
+cd "$(dirname "$0")"
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared config"
 sudo cp ./cloudflared.conf /etc/default/cloudflared
 
