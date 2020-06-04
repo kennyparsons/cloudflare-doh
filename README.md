@@ -11,4 +11,6 @@ chmod +x install-cloudflared.sh
 ```
 
 ## Usage
-If using pihole, using cloudflared is very simple. After installation, change your upstreamd DNS to the ip address:port of the server running cloudflared. If running on the same server as pihole (recommended), it would be `127.0.0.1#5053`.
+If using pi-hole, using cloudflared is very simple. After installation, change your upstreamd DNS to the ip address:port of the server running cloudflared. If running on the same server as pi-hole (recommended), it would be `127.0.0.1#5053`.
+
+![Cloudflared and Pi-hole](images/cloudflared-pihole.png)
