@@ -3,6 +3,7 @@
 # Usage: linux-64bit, running as a non-root user
 
 runasroot=1
+origindir=$(dirname "$0")
 
 cd /tmp
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared installation"
@@ -16,7 +17,7 @@ cloudflared -v
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared user"
 sudo useradd -s /usr/sbin/nologin -r -M cloudflared
 
-cd "$(dirname "$0")"
+cd $origindir
 pwd
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : creating cloudflared config"
 sudo cp ./cloudflared.conf /etc/default/cloudflared
