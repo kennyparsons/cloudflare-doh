@@ -4,6 +4,7 @@
 
 runasroot=1
 origindir=$(dirname "$0")
+echo $origindir
 
 cd /tmp
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared installation"
