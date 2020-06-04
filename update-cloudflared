@@ -1,0 +1,21 @@
+#!/bin/bash
+
+runasroot=1
+
+cd /tmp
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared update"
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : stopping cloudflared.service"
+sudo systemctl stop cloudflared
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : downloading latest version"
+wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : installing latest version"
+sudo apt-get install ./cloudflared-stable-linux-amd64.deb
+cloudflared -v
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : setting permissions"
+sudo chown cloudflared:cloudflared /etc/default/cloudflared
+sudo chown cloudflared:cloudflared /usr/local/bin/cloudflared
+echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared.service"
+sudo systemctl start cloudflared
+sudo systemctl status cloudflared
+
+exit
