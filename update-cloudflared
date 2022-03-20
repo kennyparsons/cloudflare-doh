@@ -7,7 +7,7 @@ echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared update"
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : stopping cloudflared.service"
 sudo systemctl stop cloudflared
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : downloading latest version"
-wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : installing latest version"
 sudo apt-get install ./cloudflared-stable-linux-amd64.deb
 cloudflared -v

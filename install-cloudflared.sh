@@ -9,7 +9,7 @@ origindir=$(dirname $full_path)
 cd /tmp
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : starting cloudflared installation"
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : downloading latest version"
-wget https://bin.equinox.io/c/VdrWdbjqyF/cloudflared-stable-linux-amd64.deb
+wget https://github.com/cloudflare/cloudflared/releases/latest/download/cloudflared-linux-amd64.deb
 
 echo $(date "+%Y/%m/%d %H:%M:%S")" INFO  : installing latest version"
 sudo apt-get install ./cloudflared-stable-linux-amd64.deb
